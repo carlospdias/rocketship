@@ -1,0 +1,19 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    image: carlospdiase/cpd-postgres:v1
+    environment:
+      APPLICATION_DB: my_app
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_PASSWORD: example
+      APPLICATION_DB_MANAGER: Gerente
+      APPLICATION_DB_MANAGER_PASSWORD: GerentePsw
+      APPLICATION_DB_USER: application
+      APPLICATION_DB_PASSWORD: applicationPsw
+    volumes:
+      - ./db:/var/lib/postgresql
+    ports:
+      - "5432:5432"
